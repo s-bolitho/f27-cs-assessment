@@ -1,0 +1,27 @@
+extraLargeArray:
+insert 958.6488 ms
+append 3.5633 ms
+
+tinyArray:
+insert 35 μs
+append 120 μs
+
+smallArray:
+insert 122.7 μs
+append 108.4 μs
+
+mediumArray:
+insert 194.2 μs
+append 180.3 μs
+
+largeArray:
+insert 10.4942 ms
+append 684.9 μs
+
+doublerAppend is normally running a bit faster than doublerInsert, except for with the tinyArray.
+Insert is running almost a full second for the extraLargeArray which is 100,000 units whereas append ran for
+only 3 milliseconds for the extraLargeArray. 
+
+Because append is using .unshift it has to increment all the elements that are in the given array.
+Insert does not have to change any of the arrays index so this is the reason why insert, using .push, 
+runs so much faster than append, using .unshift.
